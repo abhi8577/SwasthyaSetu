@@ -31,8 +31,11 @@ public class PatientServiceImpl implements PatientService {
 	public Response patientRegistration(PatientRegistrationDto dto) {
 
 		PatientEntity byMobileNumber = patientRepository.findByMobileNumber(dto.getMobileNumber());
-		if (byMobileNumber != null) {
+		// agar update hai aur same patient hai → allow
+		if (dto.getPatientId() == null || !byMobileNumber.getPatientId().equals(dto.getPatientId())) {
+
 			return Response.response("Mobile Number Already Exist", HttpStatus.CONFLICT, null);
+
 		}
 
 		PatientEntity patientEntity;

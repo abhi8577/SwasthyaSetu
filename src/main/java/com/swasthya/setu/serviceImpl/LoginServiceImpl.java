@@ -23,14 +23,14 @@ public class LoginServiceImpl implements LoginService {
 	@Override
 	public Response login(Long mobileNo, String patientOrDoctor) {
 
-		if (patientOrDoctor.equalsIgnoreCase("P")) {
+		if (patientOrDoctor.equalsIgnoreCase("Patient")) {
 			PatientEntity byMobileNumber = patientRepository.findByMobileNumber(mobileNo);
 			if (byMobileNumber != null) {
 				return Response.response("Patient Login Successfull", HttpStatus.OK, byMobileNumber);
 			}
 			return Response.response("Login Failed", HttpStatus.NOT_FOUND, null);
 
-		} else if (patientOrDoctor.equalsIgnoreCase("D") ) {
+		} else if (patientOrDoctor.equalsIgnoreCase("Doctor") ) {
 			DoctorEntity byMobileNumber = doctorRepository.findByMobileNumber(mobileNo);
 			if (byMobileNumber != null) {
 				return Response.response("Doctor Login Successfull", HttpStatus.OK, byMobileNumber);
