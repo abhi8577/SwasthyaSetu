@@ -1,6 +1,8 @@
 package com.swasthya.setu.service;
 
 import com.swasthya.setu.dto.DocRemarkDto;
+import com.swasthya.setu.dto.DoctorDto;
+import com.swasthya.setu.entity.DoctorEntity;
 import com.swasthya.setu.response.Response;
 
 public interface DocService {
@@ -11,4 +13,7 @@ public interface DocService {
 
 	Response findAppointmentByStatus(String status);
 
+	Response findAllDoctorList();
+
+	Response createDoctor(DoctorDto dto);
 }

@@ -14,5 +14,8 @@ public interface AppointmentRepository extends JpaRepository<AppointmentEntity, 
 
 	public List<AppointmentEntity> findByDate(String date);
 
-	public List<AppointmentEntity> findByStatus(String status);
+	public List<AppointmentEntity> findByStatusOrderByCreatedAtDesc(String status);
+
+	List<AppointmentEntity> findByMobileNumberOrderByCreatedAtDesc(Long mobileNo);
+	
 }

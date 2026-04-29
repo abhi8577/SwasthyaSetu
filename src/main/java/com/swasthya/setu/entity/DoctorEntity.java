@@ -42,6 +42,9 @@ public class DoctorEntity {
 
     @Column(name = "CONSULTATION_FEE")
     private Double consultationFee;
+    
+    @Column(name = "DR_IMAGE_PATH")
+    private String drImagePath;
 
     @Column(name = "CLINIC_NAME", length = 150)
     private String clinicName;
@@ -130,6 +133,14 @@ public class DoctorEntity {
 
 	public Integer getExperienceYears() {
 		return experienceYears;
+	}
+
+	public String getDrImagePath() {
+		return drImagePath;
+	}
+
+	public void setDrImagePath(String string) {
+		this.drImagePath = string;
 	}
 
 	public void setExperienceYears(Integer experienceYears) {

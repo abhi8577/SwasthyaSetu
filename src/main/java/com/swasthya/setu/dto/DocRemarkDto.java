@@ -8,6 +8,27 @@ public class DocRemarkDto {
 	private String drId;
 	private MultipartFile drFile;
 	private String appointmentId;
+	private String docType;
+	private String status;
+	
+	
+	
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getDocType() {
+		return docType;
+	}
+
+	public void setDocType(String docType) {
+		this.docType = docType;
+	}
 
 	public String getDrRemark() {
 		return drRemark;

@@ -53,6 +53,9 @@ public class AppointmentEntity {
 
 	@Column(name = "DR_FILE_PATH")
 	private String drFilePath;
+	
+	@Column(name = "DR_FILE_TYPE")
+	private String drFileType;
 
 	@Column(name = "DR_ID")
 	private String drId;
@@ -200,6 +203,14 @@ public class AppointmentEntity {
 
 	public void setPatientId(String patientId) {
 		this.patientId = patientId;
+	}
+
+	public String getDrFileType() {
+		return drFileType;
+	}
+
+	public void setDrFileType(String drFileType) {
+		this.drFileType = drFileType;
 	}
 
 }

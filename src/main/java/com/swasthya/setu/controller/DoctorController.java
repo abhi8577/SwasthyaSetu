@@ -1,14 +1,17 @@
 package com.swasthya.setu.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.swasthya.setu.dto.DocRemarkDto;
+import com.swasthya.setu.dto.DoctorDto;
 import com.swasthya.setu.response.Response;
 import com.swasthya.setu.service.DocService;
 
@@ -35,5 +38,16 @@ public class DoctorController {
 	public Response findAppointmentByStatus(@PathVariable("status") String status) {
 		return docService.findAppointmentByStatus(status);
 
+	}
+	
+	@GetMapping("/findAllDoctorList")
+	public Response findAllDoctorList() {
+		return docService.findAllDoctorList();
+
+	}
+	
+	@PostMapping(value = "/create", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public Response createDoctor(@ModelAttribute DoctorDto dto) {
+	    return docService.createDoctor(dto);
 	}
 }

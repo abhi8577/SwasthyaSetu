@@ -10,4 +10,6 @@ public interface PatientService {
 
 	Response bookAppointmentDetails(AppointmentDto dto);
 
+	Response findAppointmentByMobileNumber(Long mobileNo);
+
 }

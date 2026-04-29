@@ -1,6 +1,7 @@
 package com.swasthya.setu.serviceImpl;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -127,4 +128,18 @@ public class PatientServiceImpl implements PatientService {
 		return Response.response("Invalid Data", HttpStatus.BAD_REQUEST, null);
 	}
 
+	@Override
+	public Response findAppointmentByMobileNumber(Long mobileNo) {
+		
+		List<AppointmentEntity> byMobileNumber = appointmentRepository.findByMobileNumberOrderByCreatedAtDesc(mobileNo);
+		
+		if(byMobileNumber != null && ! byMobileNumber.isEmpty())
+		{  
+			return Response.response("Patient details fetched by mobile no.", HttpStatus.OK, byMobileNumber);
+		}
+		
+		
+		return Response.response("Data not found.", HttpStatus.NOT_FOUND, null); 
+	}
+	
 }
